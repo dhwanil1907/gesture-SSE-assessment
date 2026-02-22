@@ -42,7 +42,7 @@ FOLLOW_UPS = {
 
 class DecideRequest(BaseModel):
     text: str
-    context: Dict[str, Any] = {}
+    context: Dict[str, Any] = Field(default_factory=dict)
 
 
 class DecideResponse(BaseModel):
@@ -91,6 +91,7 @@ def decide(text: str, context: Dict[str, Any]) -> Dict[str, Any]:
     win_score = scores[winner]
     if win_score == 0:
         winner = "saas"
+        win_score = 0
         reasoning.append("No keyword matches found; defaulted to 'saas'.")
 
     campaign = DEFAULT_CAMPAIGN.get(winner, "Generic Awareness Campaign")
