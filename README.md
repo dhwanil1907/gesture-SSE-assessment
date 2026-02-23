@@ -1,4 +1,4 @@
-````markdown
+
 # Decision Engine Prototype
 
 A lightweight decision engine built with FastAPI that classifies a business into a vertical and recommends a campaign strategy using simple, explainable rules.
